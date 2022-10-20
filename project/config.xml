@@ -369,9 +369,15 @@
     <Space start="E08004" end="FFFFFF" />
   </ScannedFreeSpace>
   <ASMUsedSpaceBankAny>
+    <Space start="88A7D8" end="88A80E" />
+    <Space start="88AD76" end="88AF11" />
+    <Space start="88F600" end="88F773" />
+    <Space start="8AB180" end="8AB4BC" />
     <Space start="8BBE5F" end="8BBE61" />
     <Space start="8BCAFE" end="8BCB03" />
     <Space start="8BF760" end="8BF76B" />
+    <Space start="8F91C9" end="8F91CD" />
+    <Space start="8FC116" end="8FC11A" />
   </ASMUsedSpaceBankAny>
   <PLMBank>
     <option>Default</option>

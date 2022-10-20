@@ -1,0 +1,5 @@
+AmoebaOfDoom:
+	[ASM] Custom Scrolling Sky v1.2 - https://metroidconstruction.com/resource.php?id=369
+
+PJBoy:
+	[THANKS] PJ's Bank logs - https://patrickjohnston.org/bank/index.html
