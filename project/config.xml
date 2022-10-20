@@ -368,7 +368,11 @@
     <Space start="DED1C4" end="DFFFFF" />
     <Space start="E08004" end="FFFFFF" />
   </ScannedFreeSpace>
-  <ASMUsedSpaceBankAny />
+  <ASMUsedSpaceBankAny>
+    <Space start="8BBE5F" end="8BBE61" />
+    <Space start="8BCAFE" end="8BCB03" />
+    <Space start="8BF760" end="8BF76B" />
+  </ASMUsedSpaceBankAny>
   <PLMBank>
     <option>Default</option>
     <patch>false</patch>
