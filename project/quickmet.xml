@@ -9,10 +9,12 @@
   <MaxPowerBombs>10</MaxPowerBombs>
   <ReserveEnergy>0</ReserveEnergy>
   <MaxReserveEneregy>0</MaxReserveEneregy>
-  <CollectedItems>0000</CollectedItems>
-  <EquippedItems>0000</EquippedItems>
+  <CollectedItems>1104</CollectedItems>
+  <EquippedItems>1104</EquippedItems>
   <CollectedBeams>0000</CollectedBeams>
   <EquippedBeams>0000</EquippedBeams>
+  <ItemCancel>Select</ItemCancel>
+  <ItemSelect>Y</ItemSelect>
   <AreaMap0>00</AreaMap0>
   <AreaMap1>00</AreaMap1>
   <AreaMap2>00</AreaMap2>

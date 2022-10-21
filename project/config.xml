@@ -7,7 +7,7 @@
   <LoadASMonImportFromXML>true</LoadASMonImportFromXML>
   <ScanROMonImportFromROM>true</ScanROMonImportFromROM>
   <ApplyASMonImportFromROM>true</ApplyASMonImportFromROM>
-  <LogLevel>Info</LogLevel>
+  <LogLevel>Debug</LogLevel>
   <RoomNameSpaceBankAny>
     <Space start="DFD500" end="DFFFFF" />
   </RoomNameSpaceBankAny>
@@ -371,6 +371,8 @@
   <ASMUsedSpaceBankAny>
     <Space start="88A7D8" end="88A80E" />
     <Space start="88AD76" end="88AF11" />
+    <Space start="88D992" end="88D999" />
+    <Space start="88D9B3" end="88D9D7" />
     <Space start="88F600" end="88F773" />
     <Space start="8AB180" end="8AB4BC" />
     <Space start="8BBE5F" end="8BBE61" />

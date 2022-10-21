@@ -1,7 +1,7 @@
 <DemoData>
   <RoomData>
     <Room Area="00" Id="00" />
-    <Door Area="00" Id="00" DoorIndex="00" />
+    <Door Area="00" Id="00" DoorIndex="01" />
     <ScreenX>04</ScreenX>
     <ScreenY>04</ScreenY>
     <TileX>0</TileX>
