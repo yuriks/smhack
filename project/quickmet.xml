@@ -10,11 +10,12 @@
   <ReserveEnergy>0</ReserveEnergy>
   <MaxReserveEneregy>0</MaxReserveEneregy>
   <CollectedItems>1104</CollectedItems>
-  <EquippedItems>1104</EquippedItems>
+  <EquippedItems>1004</EquippedItems>
   <CollectedBeams>0000</CollectedBeams>
   <EquippedBeams>0000</EquippedBeams>
   <ItemCancel>Select</ItemCancel>
   <ItemSelect>Y</ItemSelect>
+  <MoonWalk>true</MoonWalk>
   <AreaMap0>00</AreaMap0>
   <AreaMap1>00</AreaMap1>
   <AreaMap2>00</AreaMap2>
@@ -37,7 +38,7 @@
     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
   </Items>
   <Doors>
-    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00

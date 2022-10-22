@@ -1,0 +1,16 @@
+************************
+Darkness PLM
+Version 1.0
+By: Benox50
+
+Make bottom of room goes dark, more versatile than vanilla haze, brightness instead of backdrop color, so can use with FXs
+
+PLM settings, XX YZ :
+; Height of PLM in room define when it starts to darken
+; XX = Darkness bands size
+; Y = Parallax divisor (0 to make it follows the camera)
+; Z = How much darkness bands (cant more than F anyway)
+
+************************
+
+
