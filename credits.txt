@@ -3,3 +3,18 @@ AmoebaOfDoom:
 
 PJBoy:
 	[THANKS] PJ's Bank logs - https://patrickjohnston.org/bank/index.html
+
+Benox50:
+	[ASM] Darkness PLM (Modified) - https://metroidconstruction.com/resource.php?id=567
+
+Nodever2:
+	[ASM] Full Door Cap PLM Rewrite - https://metroidconstruction.com/resource.php?id=562
+
+TestRunner & amoeba:
+	[THANKS] SMART - http://edit-sm.art/
+
+Benox50 & Nodever2:
+	[ASM] 3x3 Bomb Explosions - https://metroidconstruction.com/resource.php?id=469
+
+Black Falcon:
+	[ASM] Flexglows - https://metroidconstruction.com/resource.php?id=54
