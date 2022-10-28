@@ -369,18 +369,24 @@
     <Space start="E08004" end="FFFFFF" />
   </ScannedFreeSpace>
   <ASMUsedSpaceBankAny>
+    <Space start="83AC26" end="83AC27" />
+    <Space start="83AC46" end="83AD65" />
     <Space start="84F017" end="84F01A" />
     <Space start="84F030" end="84F039" />
+    <Space start="8880B2" end="8880B3" />
     <Space start="88A7D8" end="88A80E" />
     <Space start="88AD76" end="88AF11" />
     <Space start="88D992" end="88D999" />
     <Space start="88D9B3" end="88D9D7" />
+    <Space start="88EE32" end="88EEC7" />
     <Space start="88F600" end="88F773" />
     <Space start="88F800" end="88F94C" />
     <Space start="8AB180" end="8AB4BC" />
     <Space start="8BBE5F" end="8BBE61" />
     <Space start="8BCAFE" end="8BCB03" />
     <Space start="8BF760" end="8BF76B" />
+    <Space start="8DEAE2" end="8DEB29" />
+    <Space start="8DF7A9" end="8DF7F4" />
     <Space start="8F91C9" end="8F91CD" />
     <Space start="8FC116" end="8FC11A" />
   </ASMUsedSpaceBankAny>
