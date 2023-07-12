@@ -18,3 +18,6 @@ Benox50 & Nodever2:
 
 Black Falcon:
 	[ASM] Flexglows - https://metroidconstruction.com/resource.php?id=54
+
+MFreak:
+	[ASM] Map Overhaul - https://metroidconstruction.com/resource.php?id=528

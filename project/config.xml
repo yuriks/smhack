@@ -1,4 +1,4 @@
-<Config Version="1.19.8261.19946">
+<Config Version="1.19.8560.14065">
   <ROMfile>..\super_metroid.smc</ROMfile>
   <PatchQuickmet>true</PatchQuickmet>
   <SaveNames>true</SaveNames>
@@ -369,26 +369,153 @@
     <Space start="E08004" end="FFFFFF" />
   </ScannedFreeSpace>
   <ASMUsedSpaceBankAny>
+    <Space start="8095A7" end="8095A9" />
+    <Space start="8098FF" end="809908" />
+    <Space start="80993F" end="809948" />
+    <Space start="80997F" end="809988" />
+    <Space start="809AF3" end="809AF6" />
+    <Space start="80A153" end="80A156" />
+    <Space start="80CD8E" end="80CE24" />
+    <Space start="819E6D" end="819E7A" />
+    <Space start="81A3C4" end="81A3C6" />
+    <Space start="81A3D6" end="81A3D8" />
+    <Space start="81A3DF" end="81A3E1" />
+    <Space start="81A3E3" end="81A3E5" />
+    <Space start="81A3ED" end="81A3EF" />
+    <Space start="81A3F2" end="81A3F4" />
+    <Space start="81A40E" end="81A525" />
+    <Space start="81A79F" end="81A7A6" />
+    <Space start="81A7B1" end="81A7B4" />
+    <Space start="81A7BC" end="81A7BE" />
+    <Space start="81A7D3" end="81A7D6" />
+    <Space start="81A7E5" end="81A7E7" />
+    <Space start="81A823" end="81A825" />
+    <Space start="81AB00" end="81AB02" />
+    <Space start="81AD1D" end="81AD20" />
+    <Space start="81AD56" end="81AD5F" />
+    <Space start="81AD88" end="81AD8B" />
+    <Space start="81AED4" end="81AED6" />
+    <Space start="81AEE6" end="81AEE8" />
+    <Space start="81AEFC" end="81AEFE" />
+    <Space start="81AF0E" end="81AF10" />
+    <Space start="81AF13" end="81AF14" />
+    <Space start="81AF1F" end="81AF31" />
+    <Space start="81AFD3" end="81AFF3" />
+    <Space start="828067" end="82806A" />
+    <Space start="828D1A" end="828D1C" />
+    <Space start="828D38" end="828D3A" />
+    <Space start="828D6A" end="828D6B" />
+    <Space start="828D6F" end="828D70" />
+    <Space start="828DB1" end="828DB3" />
+    <Space start="828EB1" end="828EB2" />
+    <Space start="828ED1" end="828ED2" />
+    <Space start="828EE2" end="828EE3" />
+    <Space start="828EF3" end="828EF5" />
+    <Space start="828F13" end="828F15" />
+    <Space start="828F33" end="828F35" />
+    <Space start="828FF8" end="828FFB" />
+    <Space start="829009" end="829026" />
+    <Space start="82902B" end="8290BB" />
+    <Space start="8290FA" end="8290FC" />
+    <Space start="82910A" end="82910C" />
+    <Space start="829125" end="829127" />
+    <Space start="82912C" end="829132" />
+    <Space start="829156" end="82915C" />
+    <Space start="829200" end="829202" />
+    <Space start="82925D" end="829323" />
+    <Space start="82935B" end="82935D" />
+    <Space start="8293D8" end="8293D9" />
+    <Space start="8293E2" end="8293E4" />
+    <Space start="8293FB" end="8293FC" />
+    <Space start="82943D" end="829451" />
+    <Space start="829455" end="829456" />
+    <Space start="82945A" end="82953F" />
+    <Space start="829547" end="829627" />
+    <Space start="829E27" end="82A099" />
+    <Space start="82A0B6" end="82A0B7" />
+    <Space start="82A0BD" end="82A0BE" />
+    <Space start="82A106" end="82A108" />
+    <Space start="82A383" end="82A385" />
+    <Space start="82A3BF" end="82A3C4" />
+    <Space start="82A512" end="82A522" />
+    <Space start="82AB56" end="82ABB9" />
+    <Space start="82AC2D" end="82AC2E" />
+    <Space start="82B200" end="82B202" />
+    <Space start="82B6D7" end="82B6DA" />
+    <Space start="82B6E2" end="82B6E4" />
+    <Space start="82B747" end="82B74A" />
+    <Space start="82B74E" end="82B751" />
+    <Space start="82B792" end="82B795" />
+    <Space start="82B849" end="82B84C" />
+    <Space start="82B881" end="82B883" />
+    <Space start="82B8DC" end="82B8DF" />
+    <Space start="82B8FE" end="82B901" />
+    <Space start="82B91F" end="82B928" />
+    <Space start="82B942" end="82B944" />
+    <Space start="82B954" end="82B956" />
+    <Space start="82B96A" end="82B96C" />
+    <Space start="82B97C" end="82B97E" />
+    <Space start="82B981" end="82B982" />
+    <Space start="82B98D" end="82B99F" />
+    <Space start="82B9F7" end="82B9FA" />
+    <Space start="82BB67" end="82BB6A" />
+    <Space start="82C3AF" end="82C3D8" />
+    <Space start="82C581" end="82C588" />
+    <Space start="82C599" end="82C59A" />
+    <Space start="82DFC2" end="82DFC5" />
+    <Space start="82E488" end="82E491" />
+    <Space start="82E643" end="82E646" />
+    <Space start="82EA6B" end="82EA6E" />
     <Space start="83AC26" end="83AC27" />
     <Space start="83AC46" end="83AD65" />
+    <Space start="8488AA" end="8488AD" />
+    <Space start="848CA6" end="848CAC" />
     <Space start="84F017" end="84F01A" />
     <Space start="84F030" end="84F039" />
+    <Space start="85C000" end="85C240" />
     <Space start="8880B2" end="8880B3" />
+    <Space start="8883D2" end="8883D5" />
     <Space start="88A7D8" end="88A80E" />
     <Space start="88AD76" end="88AF11" />
     <Space start="88D992" end="88D999" />
-    <Space start="88D9B3" end="88D9D7" />
+    <Space start="88D9B3" end="88D9D8" />
     <Space start="88EE32" end="88EEC7" />
     <Space start="88F600" end="88F773" />
     <Space start="88F800" end="88F94C" />
+    <Space start="89C000" end="89C011" />
     <Space start="8AB180" end="8AB4BC" />
     <Space start="8BBE5F" end="8BBE61" />
     <Space start="8BCAFE" end="8BCB03" />
     <Space start="8BF760" end="8BF76B" />
     <Space start="8DEAE2" end="8DEB29" />
     <Space start="8DF7A9" end="8DF7F4" />
+    <Space start="8EE4A2" end="8EE4BF" />
+    <Space start="8EE4C2" end="8EE4DF" />
+    <Space start="8EE4E2" end="8EE4FF" />
+    <Space start="8EE600" end="8EE67F" />
     <Space start="8F91C9" end="8F91CD" />
     <Space start="8FC116" end="8FC11A" />
+    <Space start="8FE99B" end="8FE9B7" />
+    <Space start="90A7EE" end="90A7F0" />
+    <Space start="90A840" end="90A841" />
+    <Space start="90A844" end="90A845" />
+    <Space start="90A848" end="90A849" />
+    <Space start="90A864" end="90A883" />
+    <Space start="90A8C2" end="90A8C2" />
+    <Space start="90A8DF" end="90A8EA" />
+    <Space start="90A8EF" end="90ABF7" />
+    <Space start="90AC0C" end="90AC1B" />
+    <Space start="90DF7F" end="90DF81" />
+    <Space start="90E734" end="90E737" />
+    <Space start="90E801" end="90E804" />
+    <Space start="90E873" end="90E876" />
+    <Space start="90E8E5" end="90E8E8" />
+    <Space start="90E8F8" end="90E8FB" />
+    <Space start="91F1D9" end="91F1DB" />
+    <Space start="9BCA00" end="9BCA02" />
+    <Space start="A7C244" end="A7C245" />
+    <Space start="B6F200" end="B6F2FF" />
+    <Space start="B6FC00" end="B6FFFF" />
   </ASMUsedSpaceBankAny>
   <PLMBank>
     <option>Default</option>

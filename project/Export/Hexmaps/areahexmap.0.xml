@@ -1,22 +1,22 @@
 <HexMapArea>
   <PaletteUpdateActive>
     <PaletteUpdate>
-      <Source>0x000C</Source>
-      <Destination>0x00AC</Destination>
+      <Source>0x0008</Source>
+      <Destination>0x00B0</Destination>
     </PaletteUpdate>
     <PaletteUpdate>
-      <Source>0x0016</Source>
-      <Destination>0x00B6</Destination>
+      <Source>0x0010</Source>
+      <Destination>0x00B8</Destination>
     </PaletteUpdate>
   </PaletteUpdateActive>
   <PaletteUpdateInactive>
     <PaletteUpdate>
-      <Source>0x006C</Source>
-      <Destination>0x00AC</Destination>
+      <Source>0x0050</Source>
+      <Destination>0x00B0</Destination>
     </PaletteUpdate>
     <PaletteUpdate>
-      <Source>0x0076</Source>
-      <Destination>0x00B6</Destination>
+      <Source>0x0058</Source>
+      <Destination>0x00B8</Destination>
     </PaletteUpdate>
   </PaletteUpdateInactive>
   <Label>

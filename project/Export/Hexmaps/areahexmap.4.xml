@@ -1,14 +1,14 @@
 <HexMapArea>
   <PaletteUpdateActive>
     <PaletteUpdate>
-      <Source>0x0022</Source>
-      <Destination>0x00C2</Destination>
+      <Source>0x0018</Source>
+      <Destination>0x00C8</Destination>
     </PaletteUpdate>
   </PaletteUpdateActive>
   <PaletteUpdateInactive>
     <PaletteUpdate>
-      <Source>0x0082</Source>
-      <Destination>0x00C2</Destination>
+      <Source>0x0060</Source>
+      <Destination>0x00C8</Destination>
     </PaletteUpdate>
   </PaletteUpdateInactive>
   <Label>
