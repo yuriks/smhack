@@ -141,8 +141,8 @@ LOROM
 ;Here you can change the pointers to the tilemap data and palette of the pause screen.
 ;Only the reference point gets changed. The actual data does not get moved.
 ;(When moving pause screen related data, some patches related to this may break!)
-	!PauseScreen_Map_Tilemap_Pointer = $B6E000       ;(vanilla: $B6E000 (PC: $1B6000) ;size: $800)
-	!PauseScreen_Equipment_Tilemap_Pointer = $B6E800 ;(vanilla: $B6E800 (PC: $1B6800) ;size: $800)
+	!PauseScreen_Map_Tilemap_Pointer = $E08000       ;(vanilla: $B6E000 (PC: $1B6000) ;size: $800)
+	!PauseScreen_Equipment_Tilemap_Pointer = $E08800 ;(vanilla: $B6E800 (PC: $1B6800) ;size: $800)
 	!PauseScreen_Palette_Pointer = $B6F000           ;(vanilla: $B6F000 (PC: $1B7000) ;size: $200)
 }
 
