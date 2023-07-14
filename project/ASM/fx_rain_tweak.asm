@@ -28,7 +28,7 @@ org $88D9B3
     STA bg3_ypos
 
     LDA fx_xoff,X
-    ADC fx_xspeed,X
+    CLC : ADC fx_xspeed,X
     STA fx_xoff,X
 
     XBA
