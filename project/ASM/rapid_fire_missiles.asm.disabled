@@ -1,0 +1,120 @@
+asar 1.90
+lorom
+
+org $90C27B
+	db 07 ; Missile cooldown
+org $90C301
+	dw $0600 ; Missile initial speed
+
+org $90AC65
+	;cmp.w #$0009
+org $90BEA0
+	;cpx.w #$0009*2+2
+org $90ADED
+	;cpx.w #$0009*2
+
+org $938257
+	;ldx.w #$0009*2-2
+
+org $90BE65
+	lda $8b
+
+
+org $90b31f
+	brl hijack
+	nop : nop
+hijack_ret:
+hijack_ret2 = $90B362
+
+org $90F700 ; free space
+hijack:
+	bit #$0200
+	beq not_super
+	brl hijack_ret
+not_super:
+	lda $0B36 ; Samus Y-direction
+	beq not_in_air
+	tay
+
+	; Negate projectile Y speed and add to samus speed
+
+	; Expand 8.8 projectile velocity to 16.16 {
+	stz $12 : stz $14
+	lda $0BF0,x ; Projectile Y-velocity * 100h
+
+	cpy #$0002 ; If samus going down
+	bne +
+	eor #$FFFF : inc ; Negate projectile velocity
++
+
+	cmp #$8000 : ror
+	cmp #$8000 : ror
+	cmp #$8000 : ror
+	cmp #$8000 : ror
+	bpl +
+	dec $14 ; Sign-extend if negative
++
+	sta $13
+	; }
+
+	lda $0B2C ; Samus Y subspeed
+	clc
+	adc $12
+	sta $0B2C
+	lda $0B2E ; Samus Y speed
+	adc $14
+	sta $0B2E
+
+
+
+	; Same thing but X speed
+	lda $0A1E ; Samus X-direction
+	and.w #$00FF
+	tay
+
+	; Expand 8.8 projectile velocity to 16.16 {
+	stz $12 : stz $14
+	lda $0BDC,x ; Projectile Y-velocity * 100h
+
+	cpy #$0008 ; If samus going right
+	beq +
+	eor #$FFFF : inc ; Negate projectile velocity
++
+
+	cmp #$8000 : ror
+	;cmp #$8000 : ror
+	;cmp #$8000 : ror
+	;cmp #$8000 : ror
+	bpl +
+	dec $14 ; Sign-extend if negative
++
+	sta $13
+	; }
+
+	lda $0B48 ; Samus X subspeed
+	clc
+	adc $12
+	sta $0B48
+	lda $0B46 ; Samus X speed
+	adc $14
+	sta $0B46
+
+	lda.w #2
+	sta $0B4A
+
+
+not_in_air:
+	brl hijack_ret2
+
+
+;org $90b1ea
+;	brl speed_hijack
+;	nop
+;speed_hijack_ret:
+;
+;org $90F700 ; free space
+;speed_hijack:
+;	lda.w #0
+;	sta $16
+;	stx $12
+;	brl speed_hijack_ret

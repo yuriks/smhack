@@ -1,0 +1,44 @@
+2023-07-08
+----------
+
+I was working on migrating to the new version of the map patch. Files as is currently should work but I haven't tested. I also already checked the graphics imports to make sure they work. I should probably comment out the graphics .bin files in the source so that they don't overwrite anything custom when I patch the rom.
+
+next steps: look for that guide about unused graphics, then look at the pause menu graphics and see if there's anything I can easily free up. I want to relocate the tiles to leave a tidy space for map graphics but if I can't it's probably fine to spread them around a bit
+
+
+2023-07-09
+----------
+
+Messed around with asm experimenting for Rapid-Fire Missiles upgrade. I checked if it was possible to increase the max number of projectiles but that requires updating too much code.
+
+Added code for vertical impulses while in air and that seems to work ok. Horizontal impulses seem to be impossible unfortunately. :(
+
+next steps: decide if I want to keep this upgrade or not, I should probably drop it, the implementation work to make it handle better seems daunting. I think I want to focus on the level design aspect of the hack instead.
+
+
+2023-07-11
+----------
+
+Spent a lot of time brainfogging, but eventually got some stuff done! Applied updated Map Overhaul patch to project, and it seemed to be working ok. That's commited.
+
+I finally understood what the TileRemapping.asm file was talking about and started working on moving and updating tilemaps for it, but got stuck on lack of a good tilemap editor for the SNES format. M1TE unfortunately doesn't support Priority :(. Tilemap Studio seems to work but it can't import the SNES graphics properly. I converted the tilesets to PNG using YY-CHR and was able to edit them in Tilemap Studio!
+
+next steps: Have to update the help text that shows at the bottom of the load game screen. The tile remapping doc has some info about that. Then I can free up the now-unused space and start drawing my map tiles! :D
+
+
+2023-07-13
+----------
+
+Apparently the hexmap doesn't load the area I moved the UI tiles to. I'm moving them back up (only necessary ones) to circumvent the issue.
+
+It's done! Everything is remapped properly. Now I just need to get tiling and making rooms! :D I drew some maptiles, but I need to figure out my map layout properly again to see what I'll need.
+
+next steps: Start sketching out rooms.
+
+
+2023-07-15
+----------
+
+Sketched some rooms on paper. Blocked out already sketched rooms for early Move Lab. Learned how to work with up/dnscroll a bit and tweaked various rooms to be a better fit. Wrote patches to fix flicker during off-center door transitions and for exponential easing of door aligns. Updated Scrolling Sky patch to v1.5. Added Decompression optimization patch.
+
+next steps: Rename existing rooms and do some commits. Block out early Explosive Lab rooms I sketched.
