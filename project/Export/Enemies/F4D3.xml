@@ -1,6 +1,6 @@
 <EnemyHeader>
   <ManualGraphicsAllocation>false</ManualGraphicsAllocation>
-  <Health>0x0014</Health>
+  <Health>0x002D</Health>
   <ContactDamage>0x000F</ContactDamage>
   <XRadius>0x0010</XRadius>
   <YRadius>0x0020</YRadius>
