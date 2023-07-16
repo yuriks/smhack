@@ -39,6 +39,6 @@ next steps: Start sketching out rooms.
 2023-07-15
 ----------
 
-Sketched some rooms on paper. Blocked out already sketched rooms for early Move Lab. Learned how to work with up/dnscroll a bit and tweaked various rooms to be a better fit. Wrote patches to fix flicker during off-center door transitions and for exponential easing of door aligns. Updated Scrolling Sky patch to v1.5. Added Decompression optimization patch.
+Sketched some rooms on paper. Blocked out already sketched rooms for early Move Lab. Learned how to work with up/dnscroll a bit and tweaked various rooms to be a better fit. Wrote patches to fix flicker during off-center door transitions and for exponential easing of door aligns. Updated Scrolling Sky patch to v1.5. Added Decompression optimization patch. Commited and cleaned up most pending changes.
 
-next steps: Rename existing rooms and do some commits. Block out early Explosive Lab rooms I sketched.
+next steps: Block out early Explosive Lab rooms I sketched.
