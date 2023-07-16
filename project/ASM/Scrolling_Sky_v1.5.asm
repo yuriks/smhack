@@ -12,11 +12,13 @@ lorom
 ;
 ; Put the scrolling sky BG on a custom layer 2 for the room in the first olumn of screens. The rest of the screens aren't used.
 ; Edit/Add a scroll table to match the positions of the clouds / scrolling sections.
-; Note: If th room goes past the end of the table, the remaining sections will inherit their X scroll properties from the room. (Still fixed to one column.)
+; Note: If the room goes past the end of the table, the remaining sections will inherit their X scroll properties from the room. (Still fixed to one column.)
 ; Set the first tile's tile number to the scroll table index you want to use (000, 002, 004, etc.) this should be something in the CRE if it's sane.
 ; Note: The first row of tiles can never be visable.
 ; Note: you can save space in the rom if you copy the scrolling sky to every column of layer 2. It will compress nicely.
 ;
+
+!YPositionReference = $7EFDFE
 
 org $8F91C9 ;Normal scrolling sky room setup code
   JSL RoomSetupASM
@@ -25,6 +27,9 @@ org $8F91C9 ;Normal scrolling sky room setup code
 org $8FC116 ;Normal scrolling sky room main asm
   JSL RoomMainASM
   RTS
+
+org $8FC120
+  JSL RoomMainASM
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Add new tables here for each scrolling sky pattern needed
@@ -37,7 +42,7 @@ ScrollingSkySectionTable_List:
 ; The first section should start at the top.
 ; Each next section must appear in order from top to bottom with increasing pixels locations.
 ; The last row should indicate the end of the last section and then have a null pointer for where to store the scroll value.
-; The scroll values take 4 bytes to store. Only the highest word is actually read, so if you feel liek doing something tricky you could read something else if you set the speed to be 0.
+; The scroll values take 4 bytes to store. Only the highest word is actually read, so if you feel like doing something tricky you could read something else if you set the speed to be 0.
 ; If you want to make the table really long, you'll have to allocate more space in bank $7F for storing scroll values.
 ; Columns: top pixel row of the section, sub-pixels/frame to move (pixels start at the high word), section scroll storage address
 ;
@@ -91,7 +96,7 @@ ScrollingSkySectionTable_002: ;copy of vanilla
   DW $04A8 : DD $00000000 : DW $9FD4
   DW $04B8 : DD $00000000 : DW $9FD8
   DW $0500 : DD $00000000 : DW $0000
-
+warnpc $88FFFF
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Room Setup ASM
@@ -116,10 +121,12 @@ RoomSetupASM:
   STA $059A
   STZ $059C
   LDA $0915 ;Screen's Y position in pixels
-  STA $0919 ;Screen's realtive Y position reference point in pixels
+  STA $0919 ;Screen's relative Y position reference point in pixels
   STA $B7 ;Value for $2110 (Y scroll of BG 2)
   STZ $0923 ;Screen's relative Y position offset for transitions
   JSL LoadFullBG
+  LDA #$FFFF
+  STA !YPositionReference
   PLP
   RTL
 warnpc $88A81C
@@ -138,13 +145,13 @@ ScrollInstructionList_Loop:
 
 ScrollPreInstruction:
   SEP #$30
-  LDA #$4A
-  STA $59 ;BG2 tilemap base address = $4800, size = 32x64
-  REP #$30
   LDA $0A78
   BEQ ScrollPreInstruction_NotPaused
   RTL
 ScrollPreInstruction_NotPaused:
+  LDA #$4A
+  STA $59 ;BG2 tilemap base address = $4800, size = 32x64
+  REP #$30
   LDA $7F9602 ;First 16x16 tile of layer 2
   AND #$03FE ;Use to look up which table to use
   TAX
@@ -173,7 +180,7 @@ UpdateScrollPositions_Loop:
   LDA #$001F
   STA $7E9F00
   LDA #$059E
-  STA $7E9F01 ;first entry int he HDMA table covers the section under the hud with a fixed scroll value
+  STA $7E9F01 ;first entry in the HDMA table covers the section under the hud with a fixed scroll value
 
   LDA $0915 ;Screen's Y position in pixels
   CLC
@@ -260,20 +267,28 @@ ScrollingSection_Exit:
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Room Main ASM
-; A JSR->JSL shim at $8FC116 call this.
+; A JSR->JSL shim at $8FC116 calls this.
 ; Copies the graphics for two 8x8 rows above and two 8x8 rows below the screen.
 ; Data is loaded from the first column of screens in the layer 2 level data.
 ;
 RoomMainASM:
-  LDA $0A78 ;Pause timer, due to energy tank and x-ray scope.
+  LDA $0A78 ;Pause timer, due to reserve tank and x-ray scope.
   BEQ RoomMainASM_NotPaused
   LDA #$0000
   STA $7E9F00
   RTL
 
+DontUpdateTiles:
+  LDA $0915 ;Screen's Y position in pixels
+  STA $B7 ;Value for $2110 (Y scroll of BG 2)
+  RTL
+
 RoomMainASM_NotPaused:
   REP #$30
   LDA $0915 ;Screen's Y position in pixels
+  AND #$FFF8
+  CMP !YPositionReference
+  BEQ DontUpdateTiles
   BIT #$0008
   BNE HalfScroll
   JSL CopyTilesFullScroll
@@ -282,65 +297,82 @@ HalfScroll:
   JSL CopyTilesHalfScroll
 
 SetupGraphicsDMA:
-  LDA $0915 ;Screen's Y position in pixels
-  STA $B7 ;Value for $2110 (Y scroll of BG 2)
   LDX $0330 ;'Stack' pointer for 00D0 table
   LDA #$0040
   ;Table of entries to update graphics, 7 bytes: Size (2 bytes), source address (3 bytes), VRAM target (2 bytes)
   STA $D0,x ;Graphics copy size 0
   STA $D7,x ;Graphics copy size 1
-  STA $DE,x ;Graphics copy size 2
-  STA $E5,x ;Graphics copy size 3
 
   LDA #$FB02
   STA $D2,x ;Graphics copy source address 0
   LDA #$FB42
   STA $D9,x ;Graphics copy source address 1
-  LDA #$FB82
-  STA $E0,x ;Graphics copy source address 2
-  LDA #$FBC2
-  STA $E7,x ;Graphics copy source address 3
 
   SEP #$20
   LDA #$7F
   STA $D4,x ;Graphics copy source bank 0
   STA $DB,x ;Graphics copy source bank 1
-  STA $E2,x ;Graphics copy source bank 2
-  STA $E9,x ;Graphics copy source bank 3
   REP #$20
 
-  LDA $59 ;Value for $2108 with 'A'		BG 2 Address and Size
+  LDA $59 ;Value for $2108 with 'A'   BG 2 Address and Size
   AND #$00FC ;Screen Base Address
   XBA
   STA $00
+
+  LDA $0915 ;Screen's Y position in pixels
+  AND #$FFF8
+  CMP !YPositionReference
+  BPL +
+
   LDA $0915 ;Screen's Y position in pixels
   SEC
   SBC #$0010
-  AND #$01F8
-  ASL A
-  ASL A
-  CLC
-  ADC $00
-  STA $D5,x ;Graphics copy target address 0
-  CLC
-  ADC #$0020
-  STA $DC,x ;Graphics copy target address 1
+  BRA ++
++
   LDA $0915
   CLC
   ADC #$00F0
+++
   AND #$01F8
   ASL A
   ASL A
   CLC
   ADC $00
-  STA $E3,x ;Graphics copy target address 2
+  CMP #$5000
+  BMI +
+  SEC
+  SBC #$0800
++
+  CMP #$3FFF
+  BPL +
+  CLC
+  ADC #$0800
++
+  STA $D5,x ;Graphics copy target address 0
   CLC
   ADC #$0020
-  STA $EA,x ;Graphics copy target address 3
+  CMP #$5000
+  BMI +
+  SEC
+  SBC #$0800
++
+  CMP #$3FFF
+  BPL +
+  CLC
+  ADC #$0800
++
+  STA $DC,x ;Graphics copy target address 1
+
+SetupGraphicsDMA_Exit:
   TXA
   CLC
-  ADC #$001C
+  ADC #$000E
   STA $0330 ;'Stack' pointer for 00D0 table
+
+  LDA $0915 ;Screen's Y position in pixels
+  STA $B7 ;Value for $2110 (Y scroll of BG 2)
+  AND #$FFF8
+  STA !YPositionReference
   RTL
 print pc
 warnpc $88B057
@@ -507,14 +539,18 @@ Copy8x8TileRowBottom_BothFlip:
 
 CopyTilesFullScroll:
   LDA $0915 ;Screen's Y position in pixels
+  AND #$FFF8
+  CMP !YPositionReference
+  BPL +
+
+  LDA $0915 ;Screen's Y position in pixels
   LSR
   LSR
   LSR
   LSR
   DEC A
   LDY $07A5 ;Current room's width in tiles
-  JSL $8082D6 ;multiply A*Y -> 32-bits starting at $05F1
-  LDA $05F1 ;low product
+  JSR FastMultiply
   ASL A
   TAX
   STA $14 ;position of first tile to copy 8x8 tiles from
@@ -528,7 +564,9 @@ CopyTilesFullScroll:
   LDA #$0080
   STA $00
   JSR Copy8x8TileRowBottom
+  RTL
 
++
   LDA $0915 ;Screen's Y position in pixels
   LSR
   LSR
@@ -537,19 +575,18 @@ CopyTilesFullScroll:
   CLC
   ADC #$000F ;one tile below screen
   LDY $07A5 ;Current room's width in tiles
-  JSL $8082D6 ;multiply A*Y -> 32-bits starting at $05F1
-  LDA $05F1 ;low product
+  JSR FastMultiply
   ASL A
   TAX
   STA $14 ;position of first tile to copy 8x8 tiles from
 
-  LDY #$0080
-  LDA #$00C0
+  LDY #$0000
+  LDA #$0040
   STA $00
   JSR Copy8x8TileRowTop
   LDX $14
-  LDY #$00C0
-  LDA #$0100
+  LDY #$0040
+  LDA #$0080
   STA $00
   JSR Copy8x8TileRowBottom
   RTL
@@ -560,6 +597,11 @@ CopyTilesHalfScroll:
   ASL
   STA $12
 
+  LDA $0915 ;Screen's Y position in pixels
+  AND #$FFF8
+  CMP !YPositionReference
+  BPL +
+
   LDA $0915
   LSR
   LSR
@@ -567,8 +609,35 @@ CopyTilesHalfScroll:
   LSR
   DEC A
   LDY $07A5 ;Current room's width in tiles
-  JSL $8082D6 ;multiply A*Y -> 32-bits starting at $05F1
-  LDA $05F1 ;low product
+  JSR FastMultiply
+  ASL A
+  TAX
+  STA $14 ;position of first tile to copy 8x8 tiles from
+
+  LDY #$0000
+  LDA #$0040
+  STA $00
+  JSR Copy8x8TileRowBottom
+  LDA $14
+  CLC
+  ADC $12
+  TAX
+  LDY #$0040
+  LDA #$0080
+  STA $00
+  JSR Copy8x8TileRowTop
+  RTL
+
++
+  LDA $0915 ;Screen's Y position in pixels
+  LSR
+  LSR
+  LSR
+  LSR
+  CLC
+  ADC #$000F ;one tile below screen
+  LDY $07A5 ;Current room's width in tiles
+  JSR FastMultiply
   ASL A
   TAX
   STA $14 ;position of first tile to copy 8x8 tiles from
@@ -586,77 +655,39 @@ CopyTilesHalfScroll:
   STA $00
   JSR Copy8x8TileRowTop
 
-  LDA $0915 ;Screen's Y position in pixels
-  LSR
-  LSR
-  LSR
-  LSR
-  CLC
-  ADC #$000F ;one tile below screen
-  LDY $07A5 ;Current room's width in tiles
-  JSL $8082D6 ;multiply A*Y -> 32-bits starting at $05F1
-  LDA $05F1 ;low product
-  ASL A
-  TAX
-  STA $14 ;position of first tile to copy 8x8 tiles from
-
-  LDY #$0080
-  LDA #$00C0
-  STA $00
-  JSR Copy8x8TileRowBottom
-  LDA $14
-  CLC
-  ADC $12
-  TAX
-  LDY #$00C0
-  LDA #$0100
-  STA $00
-  JSR Copy8x8TileRowTop
-
   RTL
 
 LoadFullBG:
   ;If this is a vertical transition, we need to load the bg where the screen will be, not where it is in the middle of the transition.
-  ;If this is a horizontal transition, we want to use the current Y scroll value, which is after door has been aligned.
+  ;If this is a horizontal transition, we want to use the current Y scroll value, which is after door has been aligned. Loading speed is halved.
   ;If loading from a save, we we want to use the current Y scroll value
-  LDA $0915
-  PHA
+  
+  LDX $078D
+  LDA $830006,X
+  AND #$FF00
+  STA $16
   LDA $0998 ;Game state
   CMP #$0006;Game is loading from save
-  BEQ LoadFullBG_Horizontal
+  BEQ +
+  CMP #$0028;Game is loading from demo
+  BNE ++
++
+  LDA $0915 ;Screen's Y position in pixels
+  STA $16
+++
 
-  LDA $0791 ;Current room transition direction. 0 = right, 1 = left, 2 = down, 3 = up. +4 = Close a door on next screen
-  BIT #$0002 ;is vertical transition?
-  BEQ LoadFullBG_Horizontal
-LoadFullBG_Vertical:
-  BIT #$0001
-  BEQ LoadFullBG_Vertical_Down
-LoadFullBG_Vertical_Up:
-  LDA $0915
-  SEC
-  SBC #$00D8
-  STA $0915
-  BRA LoadFullBG_Horizontal
-LoadFullBG_Vertical_Down:
-  LDA $0915
-  CLC
-  ADC #$0088
-  STA $0915
-LoadFullBG_Horizontal:
-
-  LDA #$0000
+  LDA #$FFF0
 LoadFullBG_Loop:
-  CMP #$0101
+  STA $02
+  CMP #$0111
   BMI LoadFullBG_Continue
-  PLA
-  STA $0915
   JSR ExecuteDMA
+  LDA #$FFFF
+  STA !YPositionReference
   RTL
 
 LoadFullBG_Continue:
-  STA $02
-
-  LDA $0915 ;Screen's Y position in pixels
+  LDA $16
   CLC
   ADC $02
   LSR
@@ -664,8 +695,7 @@ LoadFullBG_Continue:
   LSR
   LSR
   LDY $07A5 ;Current room's width in tiles
-  JSL $8082D6 ;multiply A*Y -> 32-bits starting at $05F1
-  LDA $05F1 ;low product
+  JSR FastMultiply
   ASL A
   TAX
   STA $14 ;position of first tile to copy 8x8 tiles from
@@ -680,6 +710,9 @@ LoadFullBG_Continue:
   STA $00
   JSR Copy8x8TileRowBottom
 
+  LDA $0791 ;Current room transition direction. 0 = right, 1 = left, 2 = down, 3 = up. +4 = Close a door on next screen
+  BIT #$0002 ;is vertical transition?
+  BEQ +
   LDA $14
   LSR
   CLC
@@ -697,6 +730,7 @@ LoadFullBG_Continue:
   LDA #$0100
   STA $00
   JSR Copy8x8TileRowBottom
++
 
   LDX $0330 ;'Stack' pointer for 00D0 table
   LDA #$0040
@@ -727,7 +761,8 @@ LoadFullBG_Continue:
   AND #$00FC ;Screen Base Address
   XBA
   STA $00
-  LDA $0915 ;Screen's Y position in pixels
+
+  LDA $16
   CLC
   ADC $02
   AND #$01F8
@@ -736,7 +771,7 @@ LoadFullBG_Continue:
   CLC
   ADC $00
   STA $D5,x ;Graphics copy target address 0
-  LDA $0915 ;Screen's Y position in pixels
+  LDA $16
   CLC
   ADC $02
   CLC
@@ -747,7 +782,7 @@ LoadFullBG_Continue:
   CLC
   ADC $00
   STA $DC,x ;Graphics copy target address 1
-  LDA $0915 ;Screen's Y position in pixels
+  LDA $16
   CLC
   ADC $02
   CLC
@@ -758,7 +793,7 @@ LoadFullBG_Continue:
   CLC
   ADC $00
   STA $E3,x ;Graphics copy target address 2
-  LDA $0915 ;Screen's Y position in pixels
+  LDA $16
   CLC
   ADC $02
   CLC
@@ -770,23 +805,25 @@ LoadFullBG_Continue:
   ADC $00
   STA $EA,x ;Graphics copy target address 3
 
+  LDA $0791 ;Current room transition direction. 0 = right, 1 = left, 2 = down, 3 = up. +4 = Close a door on next screen
+  BIT #$0002 ;is vertical transition?
+  BEQ +
   TXA
   CLC
   ADC #$001C
   STA $0330 ;'Stack' pointer for 00D0 table
-
-  LDX $0915
-  PLA
-  STA $0915
-  PHX
   JSR ExecuteDMA
-  PLX
-  LDA $0915
-  PHA
-  STX $0915
-
-
   LDA #$0020
+  CLC
+  ADC $02
+  JMP LoadFullBG_Loop
++
+  TXA
+  CLC
+  ADC #$000E ;ADC #$001C
+  STA $0330 ;'Stack' pointer for 00D0 table
+  JSR ExecuteDMA
+  LDA #$0010
   CLC
   ADC $02
   JMP LoadFullBG_Loop
@@ -803,4 +840,17 @@ ExecuteDMA_NoNMI:
   JSL $808C83 ;Process DMA Stack
   RTS
 
+FastMultiply:
+  SEP #$30
+  STA $211B
+  STZ $211B
+  TYA
+  LSR
+  STA $211C
+  REP #$30
+  LDA $2134
+  ASL
+  RTS
+
+print pc
 warnpc $8AE980
