@@ -6,8 +6,8 @@
   <y>09</y>
   <width>04</width>
   <height>02</height>
-  <upscroll>70</upscroll>
-  <dnscroll>70</dnscroll>
+  <upscroll>88</upscroll>
+  <dnscroll>98</dnscroll>
   <specialGFX>00</specialGFX>
   <Doors>
     <Door>
@@ -500,14 +500,7 @@
       <ScrollData>00 02 02 02 00 01 01 01 </ScrollData>
       <roomvar>0000</roomvar>
       <FX2>0000</FX2>
-      <PLMs>
-        <PLM>
-          <type>F017</type>
-          <x>08</x>
-          <y>10</y>
-          <arg>102C</arg>
-        </PLM>
-      </PLMs>
+      <PLMs />
       <BGData />
       <layer1_2>91D3</layer1_2>
     </State>

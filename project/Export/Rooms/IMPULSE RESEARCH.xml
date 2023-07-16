@@ -2,8 +2,8 @@
   <Saves />
   <index>04</index>
   <area>00</area>
-  <x>13</x>
-  <y>08</y>
+  <x>10</x>
+  <y>06</y>
   <width>01</width>
   <height>01</height>
   <upscroll>70</upscroll>
@@ -11,13 +11,13 @@
   <specialGFX>00</specialGFX>
   <Doors>
     <Door>
-      <toroom area="00" index="03" />
+      <toroom area="00" index="08" />
       <bitflag>00</bitflag>
-      <direction>00</direction>
+      <direction>04</direction>
       <tilex>1</tilex>
       <tiley>6</tiley>
       <screenx>00</screenx>
-      <screeny>02</screeny>
+      <screeny>00</screeny>
       <distance>8000</distance>
       <doorcode>0000</doorcode>
     </Door>
