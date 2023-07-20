@@ -42,3 +42,10 @@ next steps: Start sketching out rooms.
 Sketched some rooms on paper. Blocked out already sketched rooms for early Move Lab. Learned how to work with up/dnscroll a bit and tweaked various rooms to be a better fit. Wrote patches to fix flicker during off-center door transitions and for exponential easing of door aligns. Updated Scrolling Sky patch to v1.5. Added Decompression optimization patch. Commited and cleaned up most pending changes.
 
 next steps: Block out early Explosive Lab rooms I sketched.
+
+2023-07-19
+----------
+
+Forgot to write entries during a few days. Been blocking out rooms for the explosion lab. I need to fix Bomb Torizo's AI to behave properly in its room, but I also want to change the patterns so this will wait until later. I also noticed that the grey ninja pirates flash the golden color when they jump, so I need to fix that.
+
+next steps: Finish designing HANGAR and start designing the transition to the Transit area and Mining Site R

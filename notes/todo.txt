@@ -1,0 +1,7 @@
+Known bugs/tasks:
+
+- Grey ninja pirates still flash the golden color
+	I believe this is because they all just share the same instruction lists, which have commands for changing the palette. I think can fix this by adding a hook in the "change palette" instruction to ignore it if it's not a golden pirate.
+
+- Missile Torizo AI fixes and patterns
+	Currently spawns in the wrong room position, which really needs fixing. I also want to add some Missile-related attacks and generally re-design the fight a bit. Also remove the haze effect.

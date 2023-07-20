@@ -39,7 +39,7 @@
       <tiley>6</tiley>
       <screenx>03</screenx>
       <screeny>00</screeny>
-      <distance>8000</distance>
+      <distance>0080</distance>
       <doorcode>0000</doorcode>
     </Door>
     <Door>
@@ -61,7 +61,7 @@
       <tiley>6</tiley>
       <screenx>00</screenx>
       <screeny>00</screeny>
-      <distance>8000</distance>
+      <distance>0080</distance>
       <doorcode>0000</doorcode>
     </Door>
   </Doors>
