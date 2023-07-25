@@ -1,90 +1,80 @@
 <Room>
   <Saves />
-  <index>0C</index>
+  <index>17</index>
   <area>00</area>
   <x>29</x>
-  <y>06</y>
+  <y>0C</y>
   <width>01</width>
   <height>01</height>
-  <upscroll>88</upscroll>
-  <dnscroll>88</dnscroll>
+  <upscroll>70</upscroll>
+  <dnscroll>70</dnscroll>
   <specialGFX>00</specialGFX>
   <Doors>
     <Door>
-      <toroom area="00" index="0B" />
+      <toroom area="00" index="16" />
       <bitflag>00</bitflag>
       <direction>05</direction>
       <tilex>E</tilex>
       <tiley>6</tiley>
-      <screenx>02</screenx>
+      <screenx>00</screenx>
       <screeny>00</screeny>
       <distance>8000</distance>
       <doorcode>0000</doorcode>
     </Door>
     <Door>
-      <toroom area="00" index="0D" />
+      <toroom area="00" index="17" />
       <bitflag>00</bitflag>
-      <direction>07</direction>
-      <tilex>6</tilex>
-      <tiley>D</tiley>
-      <screenx>03</screenx>
-      <screeny>01</screeny>
-      <distance>01C0</distance>
-      <doorcode>0000</doorcode>
-    </Door>
-    <Door>
-      <toroom area="00" index="15" />
-      <bitflag>00</bitflag>
-      <direction>06</direction>
-      <tilex>6</tilex>
-      <tiley>2</tiley>
-      <screenx>02</screenx>
+      <direction>02</direction>
+      <tilex>2</tilex>
+      <tiley>E</tiley>
+      <screenx>00</screenx>
       <screeny>00</screeny>
       <distance>8000</distance>
       <doorcode>0000</doorcode>
     </Door>
+    <Elevator />
   </Doors>
   <States>
     <State condition="default">
       <LevelData Width="1" Height="1">
         <Layer1>
           <Screen X="0" Y="0">
-        805F 805F 805F 805F 805F 805F 9C63 9C62 9862 9863 805F 805F 805F 805F 805F 805F
-        805F 805F 805F 805F 805F 805F 0C43 0C42 0842 0843 805F 805F 805F 805F 805F 805F
-        805F 805F 805F 805F 805F 805F CC1D 5C1C 581C 581D 805F 805F 805F 805F 805F 805F
-        805F 805F 805F 805F 805F 805F 00FF 00FF 00FF 00FF 805F 805F 805F 805F 805F 805F
+        805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F
+        805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F
+        805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F 805F
+        805F 805F 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
         805F 805F 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
         805F 805F 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
         9440 C40C 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
         9460 D42C 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
-        9C60 DC2C 00FF 00FF 12F2 105F 805F 805F 805F 805F 00FF 00FF 00FF 00FF 805F 805F
-        9C40 DC0C 00FF 12F2 105F 805F 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
-        805F 805F 805F 805F 805F 805F 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
-        805F 805F 805F 805F 805F 805F 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
-        805F 805F 805F 805F 805F 805F 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
-        805F 805F 805F 805F 805F 805F C41D 541C 501C 501D 805F 805F 805F 805F 805F 805F
-        805F 805F 805F 805F 805F 805F 0443 0442 0042 0043 805F 805F 805F 805F 805F 805F
-        805F 805F 805F 805F 805F 805F 9463 9462 9062 9063 805F 805F 805F 805F 805F 805F
+        9C60 DC2C 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
+        9C40 DC0C 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 00FF 805F 805F
+        805F 805F 805F 805F 805F 805F 805F 90FF 90FF 805F 805F 805F 805F 805F 805F 805F
+        805F 805F 80FF 80FF 80FF 80FF 80FF 00FF 00FF 80FF 80FF 80FF 80FF 80FF 805F 805F
+        805F 805F 80FF 80FF 80FF 80FF 80FF 00FF 50FF 80FF 80FF 80FF 80FF 80FF 805F 805F
+        805F 805F 80FF 80FF 80FF 80FF 80FF 00FF 00FF 80FF 80FF 80FF 80FF 80FF 805F 805F
+        805F 805F 80FF 80FF 80FF 80FF 80FF 00FF 00FF 80FF 80FF 80FF 80FF 80FF 805F 805F
+        805F 805F 80FF 80FF 80FF 80FF 80FF 90FF 90FF 80FF 80FF 80FF 80FF 80FF 805F 805F
       </Screen>
         </Layer1>
         <BTS>
           <Screen X="0" Y="0">
-        00 00 00 00 00 00 01 01 01 01 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-        00 00 00 00 00 00 43 FF FE FD 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 41 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-        00 FE 00 00 12 13 00 00 00 00 00 00 00 00 00 00
-        00 FD 00 12 13 00 00 00 00 00 00 00 00 00 00 00
+        00 FE 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+        00 FD 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 02 02 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 FF 00 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-        00 00 00 00 00 00 42 FF FE FD 00 00 00 00 00 00
-        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-        00 00 00 00 00 00 02 02 02 02 00 00 00 00 00 00
+        00 00 00 00 00 00 00 01 01 00 00 00 00 00 00 00
       </Screen>
         </BTS>
         <Layer2>
@@ -125,20 +115,33 @@
           <paletteblend>00</paletteblend>
         </FX1>
       </FX1s>
-      <Enemies killcount="00" />
+      <Enemies killcount="00">
+        <Enemy>
+          <ID>D73F</ID>
+          <X>0080</X>
+          <Y>00A0</Y>
+          <tilemap>0000</tilemap>
+          <special>2800</special>
+          <gfx>0000</gfx>
+          <speed>0000</speed>
+          <speed2>0140</speed2>
+        </Enemy>
+      </Enemies>
       <EnemyTypes />
       <layer2_type>Layer2</layer2_type>
       <layer2_xscroll>00</layer2_xscroll>
       <layer2_yscroll>00</layer2_yscroll>
-      <ScrollData const="0001" />
+      <ScrollData const="0000" />
       <roomvar>0000</roomvar>
       <FX2>0000</FX2>
       <PLMs>
         <PLM>
-          <type>C896</type>
-          <x>06</x>
-          <y>0D</y>
-          <arg>0003</arg>
+          <type>B703</type>
+          <x>07</x>
+          <y>0C</y>
+          <ScrollData>
+            <Change screen="00" scroll="02" />
+          </ScrollData>
         </PLM>
       </PLMs>
       <BGData />

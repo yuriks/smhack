@@ -116,7 +116,7 @@
           <type>EEF3</type>
           <x>03</x>
           <y>08</y>
-          <arg>8000</arg>
+          <arg>0000</arg>
         </PLM>
       </PLMs>
       <BGData />

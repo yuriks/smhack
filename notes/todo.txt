@@ -1,7 +1,12 @@
 Known bugs/tasks:
 
-- Grey ninja pirates still flash the golden color
-	I believe this is because they all just share the same instruction lists, which have commands for changing the palette. I think can fix this by adding a hook in the "change palette" instruction to ignore it if it's not a golden pirate.
-
 - Missile Torizo AI fixes and patterns
 	Currently spawns in the wrong room position, which really needs fixing. I also want to add some Missile-related attacks and generally re-design the fight a bit. Also remove the haze effect.
+
+- Backwards SECURITY GATE cutscene
+
+- Kraid
+	Need to copy whatever's necessary from vanilla for it to work. Then I want to write some ASM to wait until you're close to the left side of the screen before he rises up from the floor. Also it's going to be a different battle arena so I'll need to update the AI too lol
+
+- Kraid boss door
+	Currently set to the generic "boss from area defeated", but I probably want to make that Kraid-specific since Draygon is in the same area. (At least right now)
