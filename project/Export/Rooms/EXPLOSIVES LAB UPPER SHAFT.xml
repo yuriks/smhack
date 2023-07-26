@@ -195,13 +195,13 @@
         </Enemy>
         <Enemy>
           <ID>F693</ID>
-          <X>0080</X>
+          <X>0098</X>
           <Y>0190</Y>
           <tilemap>0000</tilemap>
           <special>2000</special>
           <gfx>0004</gfx>
-          <speed>8000</speed>
-          <speed2>0030</speed2>
+          <speed>8001</speed>
+          <speed2>0018</speed2>
         </Enemy>
       </Enemies>
       <EnemyTypes>

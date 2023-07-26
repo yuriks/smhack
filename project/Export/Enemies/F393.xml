@@ -36,7 +36,7 @@
     <PowerBomb>0x00</PowerBomb>
   </Drops>
   <Vulnerabilities>
-    <Power>0x02</Power>
+    <Power>0x00</Power>
     <Wave>0x02</Wave>
     <Ice>0x02</Ice>
     <Ice_Wave>0x02</Ice_Wave>
@@ -50,7 +50,7 @@
     <Plasma_Ice_Wave>0x02</Plasma_Ice_Wave>
     <Missile>0x04</Missile>
     <SuperMissile>0x04</SuperMissile>
-    <Bomb>0x00</Bomb>
+    <Bomb>0x04</Bomb>
     <PowerBomb>0x02</PowerBomb>
     <SpeedBooster>0x02</SpeedBooster>
     <ShineSpark>0x02</ShineSpark>

@@ -13,11 +13,11 @@
     <Door>
       <toroom area="00" index="06" />
       <bitflag>00</bitflag>
-      <direction>00</direction>
-      <tilex>0</tilex>
-      <tiley>0</tiley>
-      <screenx>00</screenx>
-      <screeny>00</screeny>
+      <direction>05</direction>
+      <tilex>E</tilex>
+      <tiley>6</tiley>
+      <screenx>03</screenx>
+      <screeny>01</screeny>
       <distance>8000</distance>
       <doorcode>0000</doorcode>
     </Door>

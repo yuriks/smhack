@@ -18,7 +18,7 @@
       <tiley>D</tiley>
       <screenx>03</screenx>
       <screeny>01</screeny>
-      <distance>8000</distance>
+      <distance>01C0</distance>
       <doorcode>
         <ScrollData>
           <Change screen="02" scroll="00" />

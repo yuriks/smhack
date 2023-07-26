@@ -4,6 +4,7 @@ Known bugs/tasks:
 	Currently spawns in the wrong room position, which really needs fixing. I also want to add some Missile-related attacks and generally re-design the fight a bit. Also remove the haze effect.
 
 - Backwards SECURITY GATE cutscene
+- SECURITY GATE softlocks if you enter without morph
 
 - Kraid
 	Need to copy whatever's necessary from vanilla for it to work. Then I want to write some ASM to wait until you're close to the left side of the screen before he rises up from the floor. Also it's going to be a different battle arena so I'll need to update the AI too lol

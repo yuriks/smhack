@@ -55,7 +55,7 @@
     <SpeedBooster>0x02</SpeedBooster>
     <ShineSpark>0x02</ShineSpark>
     <ScrewAttack>0x02</ScrewAttack>
-    <ChargedBeam>0x02</ChargedBeam>
+    <ChargedBeam>0x04</ChargedBeam>
     <PseudoScrew>0x02</PseudoScrew>
     <Unused>0x02</Unused>
   </Vulnerabilities>
